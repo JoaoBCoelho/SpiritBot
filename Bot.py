@@ -154,7 +154,6 @@ async def displayEmbed(ctx):
 
 @client.command(pass_context=True)
 async def help(ctx):
-    author = ctx.message.author
     channel = ctx.message.channel
 
     embed = discord.Embed(
@@ -174,8 +173,11 @@ async def help(ctx):
     embed.add_field(name='purge [amount (default 10)]', value='Deletes the amount of messages', inline=False)
 
     await client.send_message(channel, embed=embed)
-    # await client.send_message(author, embed=embed)
-
+    '''
+    If you want to send the message to her author
+    author = ctx.message.author
+    await client.send_message(author, embed=embed) 
+    '''
 
 @client.command(pass_context=True)
 async def join(ctx):
